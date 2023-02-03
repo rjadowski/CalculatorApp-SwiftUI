@@ -1,7 +1,7 @@
-Calculator
+
 A simple SwiftUI calculator app.
 
-Description
+
 The app consists of a ContentView struct that implements the SwiftUI View protocol. The main view has a black background with a white text display and a matrix of buttons. The display shows the results of calculations performed using the buttons.
 
 The ContentView has state variables to store values such as the display value, current calculation result, and current operation. The matrix of buttons is created using a two-dimensional array of the CalcButton enum. The CalcButton enum represents the buttons in a calculator and provides information about the color of the button based on its type (numeric, operation, or other).
