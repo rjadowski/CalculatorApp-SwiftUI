@@ -82,14 +82,14 @@ struct ContentView: View {
                 // Text display
                 HStack {
                     Spacer()
-                    Text(Double(value) == nil || Double(value)!.truncatingRemainder(dividingBy: 1) == 0
-                         ? String(Int(Double(value) ?? 0))
-                         : value)
+                    Text(value.count <= 9 || Double(value) == nil ? value : String(format: "%e", Double(value)!))
                     .bold()
                     .font(.system(size: value.count > 5 ? 50 : 100))
                     .foregroundColor(.white)
                 }
                 .padding()
+                
+                
                 
                 // Loop through button matrix to create button rows
                 ForEach(buttons, id: \.self) { row in
@@ -119,12 +119,15 @@ struct ContentView: View {
     }
     
     // The didTap method is called when a button on the calculator is tapped.
-    // It takes in a `CalcButton` as an argument.
+    // It takes in a CalcButton as an argument.
     func didTap(button: CalcButton) {
         // Check the value of the button passed in as an argument.
         switch button {
-            // For the .add, .subtract, .multiply, .divide, and .equal buttons,
-            // perform operations based on the button type.
+            // For the numeric buttons, append the button's value to the display value.
+        case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
+            // Check if the value is already 9 digits long, if it is, don't append any more digits.
+            if value.count >= 9 { return }
+            value = value == "0" ? button.rawValue : value + button.rawValue
         case .add, .subtract, .multiply, .divide, .equal:
             // Check which type of button was tapped.
             if button == .add {
