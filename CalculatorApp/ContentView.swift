@@ -7,7 +7,7 @@
 import SwiftUI
 
 // Enum that represents the buttons in a calculator
-enum CalcButton: String {
+enum CalculatorButton: String {
     // Numeric buttons
     case one = "1"
     case two = "2"
@@ -61,7 +61,7 @@ struct ContentView: View {
     @State var currentOperation: Operation = .none // current operation
     
     // Matrix of buttons
-    let buttons: [[CalcButton]] = [
+    let buttons: [[CalculatorButton]] = [
         [.clear, .negative, .percent, .divide],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
@@ -82,7 +82,7 @@ struct ContentView: View {
                 // Text display
                 HStack {
                     Spacer()
-                    Text(value.count <= 9 || Double(value) == nil ? value : String(format: "%e", Double(value)!))
+                    Text(value.count < 10 || Double(value) == nil ? value : String(format: Double(value)! >= 999999999 ? "%e" : "%.0f", Double(value)!))
                     .bold()
                     .font(.system(size: value.count > 5 ? 50 : 100))
                     .foregroundColor(.white)
@@ -120,7 +120,7 @@ struct ContentView: View {
     
     // The didTap method is called when a button on the calculator is tapped.
     // It takes in a CalcButton as an argument.
-    func didTap(button: CalcButton) {
+    func didTap(button: CalculatorButton) {
         // Check the value of the button passed in as an argument.
         switch button {
             // For the numeric buttons, append the button's value to the display value.
@@ -192,7 +192,7 @@ struct ContentView: View {
     
     
     // This function calculates the width of a calculator button based on its type
-    func buttonWidth(item: CalcButton) -> CGFloat {
+    func buttonWidth(item: CalculatorButton) -> CGFloat {
         // If the button is the zero button, its width should be twice the width of a regular button
         if item == .zero {
             return ((UIScreen.main.bounds.width - (4 * 12)) / 4) * 2
