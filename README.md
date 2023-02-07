@@ -9,11 +9,20 @@ The ContentView has state variables to store values such as the display value, c
 The didTap method is called when a button on the calculator is tapped. It takes in a CalcButton as an argument and performs operations based on the button type (add, subtract, multiply, divide, equal, clear, decimal, percent, or negative).
 
 Requirements
+
 Xcode 11 or later
+
 Swift 5 or later
+
 iOS 13.0 or later
+
 How to Run
+
 Clone or download the repository.
+
 Open the project in Xcode.
+
 Choose the simulator or your connected iOS device as the target.
+
 Press the Run button or use the Cmd + R keyboard shortcut to build and run the app.
+
