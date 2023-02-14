@@ -1,5 +1,5 @@
 
-A simple SwiftUI calculator app.
+# A simple SwiftUI calculator app
 
 
 The app consists of a ContentView struct that implements the SwiftUI View protocol. The main view has a black background with a white text display and a matrix of buttons. The display shows the results of calculations performed using the buttons.
@@ -8,7 +8,7 @@ The ContentView has state variables to store values such as the display value, c
 
 The didTap method is called when a button on the calculator is tapped. It takes in a CalcButton as an argument and performs operations based on the button type (add, subtract, multiply, divide, equal, clear, decimal, percent, or negative).
 
-Requirements
+# Requirements
 
 Xcode 11 or later
 
